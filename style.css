@@ -13,9 +13,10 @@ body {
 
 .cv-container {
     max-width: 8.5in; min-height: 11in; margin: 30px auto; padding: 40px 50px; background-color: #ffffff; box-shadow: 0 0 25px rgba(0,0,0,0.08); position: relative; 
+    box-sizing: border-box; /* Importante para que el padding no afecte el ancho total en móvil */
 }
 
-/* --- ENCABEZADO Y CONTACTO INTELIGENTE --- */
+/* --- ENCABEZADO --- */
 .main-header { display: flex; align-items: center; gap: 30px; margin-bottom: 25px; position: relative; }
 .profile-picture { width: 130px; height: 130px; border-radius: 50%; border: 5px solid var(--borde-color); object-fit: cover; transition: transform 0.4s; }
 .profile-picture:hover { transform: scale(1.05); }
@@ -26,58 +27,14 @@ body {
 .contact-info i { margin-right: 8px; color: var(--color-interactivo); }
 .contact-info a { text-decoration: none; color: inherit; transition: color 0.3s; }
 .contact-info a:hover { color: var(--color-interactivo); }
-.download-btn {
-    position: absolute;
-    top: 20px;
-    right: 0;
-    background-image: var(--gemini-gradient);
-    background-size: 200% auto;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 18px;
-    font-family: var(--fuente-principal);
-    font-size: 9pt;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: background-position 0.4s ease, transform 0.2s;
-}
+.download-btn { position: absolute; top: 75px; right: 0; background-image: var(--gemini-gradient); background-size: 200% auto; color: white; border: none; border-radius: 5px; padding: 10px 18px; font-family: var(--fuente-principal); font-size: 9pt; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: background-position 0.4s ease, transform 0.2s; }
 .download-btn:hover { background-position: right center; transform: translateY(-2px); }
 
-/* --- SECCIONES Y ESTRUCTURA GENERAL --- */
-.highlight-text {
-    background-image: var(--gemini-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-weight: 600;
-}
+/* --- ESTRUCTURA GENERAL --- */
+.highlight-text { background-image: var(--gemini-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 600; }
 .section-divider { border: 0; height: 1px; background-color: var(--borde-color); margin: 25px 0; }
-h2 {
-    text-align: center;
-    font-size: 14pt;
-    font-weight: 600;
-    color: var(--color-primario);
-    margin: 0 0 30px 0;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    position: relative;
-    padding-bottom: 15px;
-}
-h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 3px;
-    background-image: var(--gemini-gradient);
-    border-radius: 2px;
-}
+h2 { text-align: center; font-size: 14pt; font-weight: 600; color: var(--color-primario); margin: 0 0 30px 0; text-transform: uppercase; letter-spacing: 3px; position: relative; padding-bottom: 15px; }
+h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 50px; height: 3px; background-image: var(--gemini-gradient); border-radius: 2px; }
 h3 { font-size: 11pt; font-weight: 700; color: var(--color-primario); margin-bottom: 5px; }
 ul { padding-left: 1.5em; list-style-type: '▪  '; }
 li { margin-bottom: 5px; padding-left: 5px; }
@@ -86,45 +43,18 @@ p { margin: 0 0 10px 0; }
 .two-column-section { display: flex; gap: 40px; }
 .left-column, .right-column { width: 50%; }
 
-/* --- APTITUDES DUALES --- */
+/* --- APTITUDES --- */
 .skills-pills-container { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; text-align: center; }
-.skill-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 15px;
-    background-color: #f1f3f5;
-    color: var(--color-primario);
-    border-radius: 20px;
-    font-size: 9pt;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-.skill-pill:hover {
-    background-image: var(--gemini-gradient);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-.skill-pill:hover i {
-    background-image: none;
-    -webkit-background-clip: initial;
-    background-clip: initial;
-    color: white;
-}
+.skill-pill { display: inline-flex; align-items: center; gap: 8px; padding: 8px 15px; background-color: #f1f3f5; color: var(--color-primario); border-radius: 20px; font-size: 9pt; font-weight: 600; transition: all 0.3s ease; }
+.skill-pill:hover { background-image: var(--gemini-gradient); color: white; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.skill-pill:hover i { background-image: none; -webkit-background-clip: initial; background-clip: initial; color: white; }
 .skills-icons-container { display: none; }
 
-/* --- EXPERIENCIA Y CERTIFICADOS WEB --- */
-.experience-section .job {
-    margin-bottom: 15px;
-    padding: 20px;
-    border-radius: 8px;
-    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-}
-.experience-section .job:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(45, 52, 54, 0.08);
-}
+/* --- EXPERIENCIA --- */
+.experience-section .job { margin-bottom: 15px; padding: 20px; border-radius: 8px; transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; }
+.experience-section .job:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(45, 52, 54, 0.08); }
+
+/* --- CERTIFICADOS, REFERENCIAS, FORMULARIO... --- */
 .web-view { display: block; }
 .print-annexes { display: none; }
 .certificate-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 20px; }
@@ -132,142 +62,116 @@ p { margin: 0 0 10px 0; }
 .certificate-item:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
 .certificate-item h4 { margin: 0 0 5px 0; }
 .certificate-link { text-decoration: none; color: var(--color-interactivo); font-weight: 700; }
+.references-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: -10px; }
+.reference-card { border-left: 4px solid; border-image-slice: 1; border-image-source: var(--gemini-gradient); padding: 15px 20px; }
+.reference-card h4 { margin: 0 0 5px 0; color: var(--color-primario); font-size: 11pt; }
+.reference-card p { font-size: 9.5pt; margin: 0 0 10px 0; color: #777; line-height: 1.5; }
+.reference-card a { font-weight: 600; font-size: 9pt; color: var(--color-interactivo); text-decoration: none; }
+.contact-form { display: flex; flex-direction: column; gap: 15px; max-width: 700px; margin: -10px auto 0 auto; }
+.contact-form .form-row { display: flex; gap: 15px; }
+.contact-form .form-row input { width: 50%; }
+.contact-form input, .contact-form textarea { width: 100%; padding: 12px 15px; border: 1px solid var(--borde-color); border-radius: 5px; font-family: var(--fuente-principal); font-size: 10pt; transition: border-color 0.3s, box-shadow 0.3s; box-sizing: border-box; }
+.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--color-interactivo); box-shadow: 0 0 8px rgba(78, 140, 255, 0.2); }
+.contact-form .submit-btn { background-image: var(--gemini-gradient); background-size: 200% auto; color: white; border: none; border-radius: 5px; padding: 12px 20px; font-family: var(--fuente-principal); font-size: 11pt; font-weight: 600; cursor: pointer; transition: background-position 0.4s ease, transform 0.2s; align-self: center; width: 200px; }
+.contact-form .submit-btn:hover { background-position: right center; transform: translateY(-2px); }
 
-/* --- REFERENCIAS (SOLO WEB) --- */
-.references-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: -10px;
-}
-.reference-card {
-    border-left: 4px solid;
-    border-image-slice: 1;
-    border-image-source: var(--gemini-gradient);
-    padding: 15px 20px;
-}
-.reference-card:hover {
-}
-.reference-card h4 {
-    margin: 0 0 5px 0;
-    color: var(--color-primario);
-    font-size: 11pt;
-}
-.reference-card p {
-    font-size: 9.5pt;
-    margin: 0 0 10px 0;
-    color: #777;
-    line-height: 1.5;
-}
-.reference-card a {
-    font-weight: 600;
-    font-size: 9pt;
-    color: var(--color-interactivo);
-    text-decoration: none;
-}
-
-/* --- FORMULARIO DE CONTACTO (SOLO WEB) --- */
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 700px;
-    margin: -10px auto 0 auto;
-}
-.contact-form .form-row {
-    display: flex;
-    gap: 15px;
-}
-.contact-form .form-row input {
-    width: 50%;
-}
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid var(--borde-color);
-    border-radius: 5px;
-    font-family: var(--fuente-principal);
-    font-size: 10pt;
-    transition: border-color 0.3s, box-shadow 0.3s;
-    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
-}
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: none;
-    border-color: var(--color-interactivo);
-    box-shadow: 0 0 8px rgba(78, 140, 255, 0.2);
-}
-.contact-form .submit-btn {
-    background-image: var(--gemini-gradient);
-    background-size: 200% auto;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 12px 20px;
-    font-family: var(--fuente-principal);
-    font-size: 11pt;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-position 0.4s ease, transform 0.2s;
-    align-self: center;
-    width: 200px;
-}
-.contact-form .submit-btn:hover {
-    background-position: right center;
-    transform: translateY(-2px);
-}
-
-/* --- PIE DE PÁGINA --- */
-.main-footer {
-    text-align: center;
-    padding-top: 20px;
-    margin-top: 20px;
-    border-top: 1px solid var(--borde-color);
-    font-size: 9pt;
-    color: #aaa;
-}
+/* --- FOOTER --- */
+.main-footer { text-align: center; padding-top: 20px; margin-top: 20px; border-top: 1px solid var(--borde-color); font-size: 9pt; color: #aaa; }
 
 /* --- ANIMACIÓN --- */
 .fade-in-section { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
 .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
 
-/* --- LA MAGIA: ESTILOS PARA IMPRESIÓN --- */
-@media print {
-    body { background-color: #fff; font-size: 9pt; }
-    .cv-container { box-shadow: none; margin: 0; max-width: 100%; padding: 40px; }
-    /* Ocultar elementos no deseados en la impresión para mantener el formato de 2 páginas */
-    .profile-picture, .download-btn, .references-section, .certificates-section, .section-divider:last-of-type, .main-footer, .contact-form-section, .contact-divider { display: none; }
-    .main-header { text-align: center; display: block; border-bottom: 2px solid var(--borde-color); padding-bottom: 20px; margin-bottom: 20px; }
-    .contact-info { justify-content: center; flex-direction: row; gap: 20px; }
-    .contact-info a { color: inherit !important; }
-    .highlight-text { background-image: none !important; color: inherit !important; font-weight: 600; }
-    .fade-in-section { opacity: 1 !important; transform: none !important; }
-    .two-column-section, .job { break-inside: avoid; }
-    .skills-pills-container { display: none !important; }
-    .skills-icons-container { display: grid !important; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    h2::after { background-image: none !important; background-color: #000; }
-    .reference-card { border-image: none !important; border-left: 2px solid #ccc !important; }
-    .skill-pill:hover { background-image: none !important; background-color: #f1f3f5 !important; color: var(--color-primario) !important; }
-    .skill-pill:hover i { color: var(--color-primario) !important; }
-
-    /* Compactar espaciado para optimizar el contenido en dos páginas */
-    h2 {
-        margin-bottom: 15px;
-        padding-bottom: 10px;
+/* --- LA MAGIA: ADAPTABILIDAD (RESPONSIVE) --- */
+@media (max-width: 900px) {
+    .cv-container {
+        width: 100%;
+        margin: 0;
+        padding: 20px;
     }
-    .experience-section .job {
-        padding: 0; /* Eliminar el padding que solo sirve para el hover en web */
-        margin-bottom: 15px;
+    .main-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    .profile-picture {
+        width: 100px;
+        height: 100px;
+        margin-right: 0;
+    }
+    .main-header h1 {
+        font-size: 24pt;
+    }
+    .contact-info {
+        align-items: center;
+    }
+    .download-btn {
+        position: static; /* Lo saca del posicionamiento absoluto */
+        margin-top: 20px; /* Más espacio para que no se pegue */
+        width: 100%;      /* Ocupa todo el ancho para un look de bloque */
+        justify-content: center; /* Centra el texto y el icono */
+    }
+    .two-column-section, .contact-form .form-row {
+        flex-direction: column;
+        gap: 0; /* Elimina el espacio entre columnas al apilarse */
+    }
+    .left-column, .right-column {
+        width: 100%;
+    }
+    .right-column > section {
+        margin-top: 25px; /* Añade espacio entre secciones al apilarse */
+    }
+    .certificate-grid, .references-grid {
+        grid-template-columns: 1fr;
     }
 }
 
-/* --- RESPONSIVE ADAPTATIONS --- */
-@media (max-width: 768px) {
-    .contact-form .form-row {
-        flex-direction: column;
+
+/* --- LA MAGIA: ESTILOS PARA IMPRESIÓN --- */
+@media print {
+    /* 1. Configuración de página y Reset general */
+    @page {
+        margin: 1.5cm;
     }
-    .contact-form .form-row input {
-        width: 100%;
+    body {
+        background-color: #fff !important;
+        font-size: 9.5pt;
+        line-height: 1.5;
     }
+
+    /* 2. Ocultar elementos no deseados */
+    .profile-picture, .download-btn, .references-section, .certificates-section, .section-divider, .main-footer, .contact-form-section, .contact-divider {
+        display: none !important;
+    }
+
+    /* 3. Reset de colores y estilos visuales */
+    .cv-container { box-shadow: none; margin: 0; padding: 0; }
+    .highlight-text { background-image: none !important; -webkit-background-clip: initial !important; background-clip: initial !important; color: inherit !important; font-weight: 600; }
+    h2::after { background-image: none !important; background-color: #000; height: 2px; }
+    .fade-in-section { opacity: 1 !important; transform: none !important; }
+    .experience-section .job, .experience-section .job:hover { padding: 0; box-shadow: none; transform: none; }
+
+    /* 4. Compactar espaciado vertical para que todo encaje */
+    .main-header { padding-bottom: 15px; margin-bottom: 15px; }
+    h2 { margin-top: 15px; margin-bottom: 10px; padding-bottom: 5px; font-size: 13pt; }
+    h3 { margin-top: 10px; margin-bottom: 4px; font-size: 10pt; }
+    p { margin-bottom: 5px; }
+    li { margin-bottom: 4px; }
+    .summary-section p { font-size: 10pt; line-height: 1.6; }
+    .item, .job { margin-bottom: 10px; }
+    .two-column-section { gap: 30px; }
+
+    /* 5. Lógica de salto de página para 2 páginas */
+    .two-column-section, .item { break-inside: avoid; }
+    .job, p, ul { break-inside: auto; }
+
+    /* 6. Estilos específicos para contenido de impresión */
+    .skills-pills-container { display: none !important; }
+    .skills-icons-container {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px 10px;
+    }
+    .skill-icon-item { font-size: 9pt; }
+    .right-column > section { margin-top: 0; }
 }
