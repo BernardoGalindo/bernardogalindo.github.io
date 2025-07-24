@@ -1,320 +1,273 @@
-
 :root {
-    --color-primario: #004d40; /* Verde azulado oscuro */
-    --color-secundario: #00796b; /* Verde azulado medio */
-    --color-fondo: #fdfdfd; /* Blanco ligeramente roto */
-    --color-texto: #333333;
-    --fuente-titulo: 'Merriweather', serif;
-    --fuente-cuerpo: 'Roboto', sans-serif;
+    --color-primario: #2d3436;
+    --color-texto: #555;
+    --fuente-principal: 'Montserrat', sans-serif;
+    --borde-color: #dfe6e9;
+    --color-interactivo: #0984e3;
+    --gemini-gradient: linear-gradient(125deg, #4e8cff, #d16aff, #ff8a5c);
 }
 
 body {
-    font-family: var(--fuente-cuerpo);
-    margin: 0;
-    padding: 0;
-    background-color: #37474f;
-    background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,0.02) 35px, rgba(255,255,255,0.02) 70px);
-    color: var(--color-texto);
-    font-size: 11pt; /* Tamaño base profesional */
-    line-height: 1.65;
+    font-family: var(--fuente-principal); margin: 0; background-color: #f5f6fa; color: var(--color-texto); font-size: 10pt; font-weight: 400; line-height: 1.7;
 }
 
 .cv-container {
-    max-width: 900px;
-    margin: 30px auto;
-    background-color: var(--color-fondo);
-    box-shadow: 0 0 20px rgba(0,0,0,0.15);
-    min-height: 1200px; /* Para que el fondo no se corte */
+    max-width: 8.5in; min-height: 11in; margin: 30px auto; padding: 40px 50px; background-color: #ffffff; box-shadow: 0 0 25px rgba(0,0,0,0.08); position: relative; 
 }
 
-/* --- CABECERA --- */
-.header-main {
-    padding: 30px 40px;
-    background-color: var(--color-fondo);
-    border-bottom: 3px solid var(--color-secundario);
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    position: relative; /* Contexto para el botón de descarga */
-}
-
-.header-main h1 {
-    font-family: var(--fuente-titulo);
-    font-size: 28pt;
-    margin: 0 0 5px 0;
-    color: var(--color-primario);
-    letter-spacing: 1px;
-}
-
-.profile-picture {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover; /* Prevents the image from being stretched */
-    border: 3px solid var(--color-secundario);
-}
-
-.contact-info {
-    font-size: 10pt;
-    color: #555;
-    font-weight: 500;
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.contact-info li {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.contact-info i {
-    color: var(--color-secundario);
-    font-size: 0.9em;
-}
-
-.contact-info a {
-    color: inherit;
-    text-decoration: none;
-}
-
-.contact-info a:hover {
-    text-decoration: underline;
-}
-
-/* --- BOTÓN DE DESCARGA --- */
+/* --- ENCABEZADO Y CONTACTO INTELIGENTE --- */
+.main-header { display: flex; align-items: center; gap: 30px; margin-bottom: 25px; position: relative; }
+.profile-picture { width: 130px; height: 130px; border-radius: 50%; border: 5px solid var(--borde-color); object-fit: cover; transition: transform 0.4s; }
+.profile-picture:hover { transform: scale(1.05); }
+.header-content { text-align: left; flex-grow: 1; }
+.main-header h1 { font-size: 32pt; font-weight: 700; color: var(--color-primario); margin: 0 0 10px 0; letter-spacing: 2px; }
+.contact-info { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 5px; font-size: 9pt; }
+.contact-info li { display: flex; align-items: center; color: #888; }
+.contact-info i { margin-right: 8px; color: var(--color-interactivo); }
+.contact-info a { text-decoration: none; color: inherit; transition: color 0.3s; }
+.contact-info a:hover { color: var(--color-interactivo); }
 .download-btn {
     position: absolute;
-    top: 30px;
-    right: 40px;
-    padding: 10px 20px;
-    background-color: var(--color-secundario);
+    top: 20px;
+    right: 0;
+    background-image: var(--gemini-gradient);
+    background-size: 200% auto;
     color: white;
     border: none;
     border-radius: 5px;
-    font-family: var(--fuente-cuerpo);
-    font-weight: 500;
-    font-size: 10pt;
+    padding: 10px 18px;
+    font-family: var(--fuente-principal);
+    font-size: 9pt;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-}
-
-.download-btn:hover {
-    background-color: var(--color-primario);
-}
-
-/* --- COLUMNAS PRINCIPALES --- */
-.columns-container {
     display: flex;
-    padding: 20px 40px;
+    align-items: center;
+    gap: 8px;
+    transition: background-position 0.4s ease, transform 0.2s;
 }
+.download-btn:hover { background-position: right center; transform: translateY(-2px); }
 
-.left-column {
-    width: 65%;
-    padding-right: 30px;
+/* --- SECCIONES Y ESTRUCTURA GENERAL --- */
+.highlight-text {
+    background-image: var(--gemini-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 600;
 }
-
-.right-column {
-    width: 35%;
-    border-left: 1px solid #dee2e6;
-    padding-left: 30px;
-}
-
-/* Anula la justificación de texto en la columna derecha para evitar espaciado extraño en listas cortas. */
-.right-column li {
-    text-align: left;
-}
-
-/* --- ESTILOS COMUNES DE SECCIÓN --- */
+.section-divider { border: 0; height: 1px; background-color: var(--borde-color); margin: 25px 0; }
 h2 {
-    font-family: var(--fuente-titulo);
+    text-align: center;
     font-size: 14pt;
+    font-weight: 600;
     color: var(--color-primario);
-    border-bottom: 2px solid var(--color-secundario);
-    padding-bottom: 8px;
-    margin-top: 20px;
-    margin-bottom: 15px;
-    font-weight: 700;
-}
-
-/* Evita el margen superior en el primer título de cada columna para un mejor alineamiento */
-section:first-child h2 {
-    margin-top: 0;
-}
-
-h3 {
-    font-family: var(--fuente-titulo);
-    font-size: 11pt;
-    color: var(--color-secundario);
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-li {
-    margin-bottom: 8px;
-    text-align: justify;
-}
-
-/* --- Estilo de listas con subtítulos (h3) --- */
-h3 + ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-h3 + ul li {
+    margin: 0 0 30px 0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
     position: relative;
-    padding-left: 1.2em; /* Crea espacio para el bullet */
+    padding-bottom: 15px;
 }
-h3 + ul li::before {
-    content: '▪';
+h2::after {
+    content: '';
     position: absolute;
-    left: 0;
-    color: var(--color-secundario); /* Usa el color de acento del tema */
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-image: var(--gemini-gradient);
+    border-radius: 2px;
 }
+h3 { font-size: 11pt; font-weight: 700; color: var(--color-primario); margin-bottom: 5px; }
+ul { padding-left: 1.5em; list-style-type: '▪  '; }
+li { margin-bottom: 5px; padding-left: 5px; }
+p { margin: 0 0 10px 0; }
+.summary-section p { text-align: justify; font-size: 11pt; line-height: 1.8; }
+.two-column-section { display: flex; gap: 40px; }
+.left-column, .right-column { width: 50%; }
 
-p {
+/* --- APTITUDES DUALES --- */
+.skills-pills-container { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; text-align: center; }
+.skill-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    background-color: #f1f3f5;
+    color: var(--color-primario);
+    border-radius: 20px;
+    font-size: 9pt;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.skill-pill:hover {
+    background-image: var(--gemini-gradient);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.skill-pill:hover i {
+    background-image: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    color: white;
+}
+.skills-icons-container { display: none; }
+
+/* --- EXPERIENCIA Y CERTIFICADOS WEB --- */
+.experience-section .job {
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+.experience-section .job:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(45, 52, 54, 0.08);
+}
+.web-view { display: block; }
+.print-annexes { display: none; }
+.certificate-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 20px; }
+.certificate-item { border: 1px solid var(--borde-color); padding: 15px; border-radius: 8px; transition: box-shadow 0.3s; }
+.certificate-item:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+.certificate-item h4 { margin: 0 0 5px 0; }
+.certificate-link { text-decoration: none; color: var(--color-interactivo); font-weight: 700; }
+
+/* --- REFERENCIAS (SOLO WEB) --- */
+.references-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: -10px;
+}
+.reference-card {
+    border-left: 4px solid;
+    border-image-slice: 1;
+    border-image-source: var(--gemini-gradient);
+    padding: 15px 20px;
+}
+.reference-card:hover {
+}
+.reference-card h4 {
+    margin: 0 0 5px 0;
+    color: var(--color-primario);
+    font-size: 11pt;
+}
+.reference-card p {
+    font-size: 9.5pt;
     margin: 0 0 10px 0;
-    text-align: justify;
+    color: #777;
+    line-height: 1.5;
+}
+.reference-card a {
+    font-weight: 600;
+    font-size: 9pt;
+    color: var(--color-interactivo);
+    text-decoration: none;
 }
 
-/* --- SECCIÓN DE EXPERIENCIA --- */
-.experience-section {
-    padding: 20px 40px 40px;
+/* --- FORMULARIO DE CONTACTO (SOLO WEB) --- */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 700px;
+    margin: -10px auto 0 auto;
+}
+.contact-form .form-row {
+    display: flex;
+    gap: 15px;
+}
+.contact-form .form-row input {
+    width: 50%;
+}
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--borde-color);
+    border-radius: 5px;
+    font-family: var(--fuente-principal);
+    font-size: 10pt;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--color-interactivo);
+    box-shadow: 0 0 8px rgba(78, 140, 255, 0.2);
+}
+.contact-form .submit-btn {
+    background-image: var(--gemini-gradient);
+    background-size: 200% auto;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    font-family: var(--fuente-principal);
+    font-size: 11pt;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-position 0.4s ease, transform 0.2s;
+    align-self: center;
+    width: 200px;
+}
+.contact-form .submit-btn:hover {
+    background-position: right center;
+    transform: translateY(-2px);
 }
 
-.experience-section h2 {
-    margin-top: 0;
+/* --- PIE DE PÁGINA --- */
+.main-footer {
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 20px;
+    border-top: 1px solid var(--borde-color);
+    font-size: 9pt;
+    color: #aaa;
 }
 
-.job {
-    margin-bottom: 20px;
-}
+/* --- ANIMACIÓN --- */
+.fade-in-section { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+.fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
 
-.job h3 {
-    border-bottom: 1px solid #f0f0f0;
-    padding-bottom: 5px;
-    margin-top: 0;
-}
-
-/* --- ANIMACIÓN DE SCROLL --- */
-.fade-in-section {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-}
-
-.fade-in-section.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* --- DISEÑO RESPONSIVE --- */
-@media (max-width: 900px) {
-    body {
-        background-color: var(--color-fondo);
-        background-image: none;
-    }
-    .cv-container {
-        width: 100%;
-        margin: 0;
-        min-height: auto;
-        box-shadow: none;
-    }
-    .columns-container {
-        flex-direction: column;
-        padding: 20px;
-    }
-    .left-column, .right-column {
-        width: auto;
-        padding: 0;
-        border: none;
-    }
-    .header-main {
-        flex-direction: column;
-        padding-bottom: 20px;
-    }
-    .download-btn {
-        position: static;
-        margin-top: 20px;
-        width: 80%;
-    }
-    .header-text {
-        text-align: center;
-    }
-    .contact-info {
-        justify-content: center;
-    }
-    .header-main h1 {
-        font-size: 24pt;
-    }
-}
-
-/* --- ESTILOS DE IMPRESIÓN --- */
+/* --- LA MAGIA: ESTILOS PARA IMPRESIÓN --- */
 @media print {
-    /* 1. Configuración de página y Reset general */
-    @page {
-        margin: 1.5cm; /* Margen de página estándar */
-    }
-    html, body {
-        background-color: #ffffff !important;
-        color: #000000 !important;
-        font-size: 9.5pt;
-        margin: 0;
-        padding: 0;
-        height: auto !important;
-        overflow: visible !important;
-    }
+    body { background-color: #fff; font-size: 9pt; }
+    .cv-container { box-shadow: none; margin: 0; max-width: 100%; padding: 40px; }
+    /* Ocultar elementos no deseados en la impresión para mantener el formato de 2 páginas */
+    .profile-picture, .download-btn, .references-section, .certificates-section, .section-divider:last-of-type, .main-footer, .contact-form-section, .contact-divider { display: none; }
+    .main-header { text-align: center; display: block; border-bottom: 2px solid var(--borde-color); padding-bottom: 20px; margin-bottom: 20px; }
+    .contact-info { justify-content: center; flex-direction: row; gap: 20px; }
+    .contact-info a { color: inherit !important; }
+    .highlight-text { background-image: none !important; color: inherit !important; font-weight: 600; }
+    .fade-in-section { opacity: 1 !important; transform: none !important; }
+    .two-column-section, .job { break-inside: avoid; }
+    .skills-pills-container { display: none !important; }
+    .skills-icons-container { display: grid !important; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    h2::after { background-image: none !important; background-color: #000; }
+    .reference-card { border-image: none !important; border-left: 2px solid #ccc !important; }
+    .skill-pill:hover { background-image: none !important; background-color: #f1f3f5 !important; color: var(--color-primario) !important; }
+    .skill-pill:hover i { color: var(--color-primario) !important; }
 
-    /* 2. Ocultar elementos y ajustar colores para impresión */
-    .download-btn, body > script {
-        display: none !important;
+    /* Compactar espaciado para optimizar el contenido en dos páginas */
+    h2 {
+        margin-bottom: 15px;
+        padding-bottom: 10px;
     }
-    h1, h2, h3, a, .contact-info {
-        color: #000 !important;
+    .experience-section .job {
+        padding: 0; /* Eliminar el padding que solo sirve para el hover en web */
+        margin-bottom: 15px;
     }
-    .header-main, h2, .profile-picture, .right-column, .job h3 {
-        border-color: #ccc !important;
-    }
-    .header-main {
-        background-color: transparent !important;
-    }
-    a {
-        text-decoration: none;
-    }
+}
 
-    /* 3. Layout de Impresión: Mostrar solo cabecera y experiencia */
-    .cv-container {
-        box-shadow: none;
-        border: none;
+/* --- RESPONSIVE ADAPTATIONS --- */
+@media (max-width: 768px) {
+    .contact-form .form-row {
+        flex-direction: column;
+    }
+    .contact-form .form-row input {
         width: 100%;
-        min-height: 0; /* Reset min-height for print */
-    }
-
-    /* 4. Forzar salto de página para un PDF de dos páginas */
-    .experience-section {
-        break-before: page;
-    }
-
-    /* 5. Ajustar espaciado para compactar el contenido */
-    .columns-container, .experience-section { padding: 0 40px; }
-    .item, .job { margin-bottom: 10px; }
-    h2 { margin-top: 15px; margin-bottom: 10px; padding-bottom: 5px; }
-    li { margin-bottom: 4px; }
-    p { margin-bottom: 8px; }
-    .header-main { padding-top: 0; padding-bottom: 15px; }
-
-    /* 6. Control de saltos de página internos (Solución Robusta) */
-    /* Se elimina 'page-break-inside: avoid' de los elementos grandes como .job */
-    /* para prevenir que el navegador los omita si no caben en una página. */
-    /* Es preferible que un trabajo se divida entre páginas a que desaparezca. */
-    .columns-container section, .item {
-        page-break-inside: avoid; /* Mantener secciones cortas juntas */
-    }
-    p, ul, .job {
-        page-break-inside: auto; /* Permitir que párrafos y trabajos largos se corten */
     }
 }
