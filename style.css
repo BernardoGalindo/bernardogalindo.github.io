@@ -71,9 +71,6 @@ p { margin: 0 0 10px 0; }
 .fade-in-section { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
 .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
 
-/* ============================================= */
-/* ======   MOBILE RESPONSIVE STYLES      ====== */
-/* ============================================= */
 @media (max-width: 900px) {
     .cv-container { width: 100%; margin: 0; padding: 20px; }
     .main-header { flex-direction: column; text-align: center; gap: 15px; }
@@ -83,12 +80,9 @@ p { margin: 0 0 10px 0; }
     .contact-info { align-items: center; }
     .two-column-section, .contact-form .form-row { flex-direction: column; gap: 0; }
     .left-column, .right-column { width: 100%; }
-    
-    /* === THIS IS THE FIX FOR MOBILE SPACING === */
     .two-column-section .right-column {
         margin-top: 40px;
     }
-    
     .certificate-grid, .references-grid { grid-template-columns: 1fr; }
 }
 
@@ -177,10 +171,12 @@ input:checked + .slider:before { transform: translateX(26px); }
     .two-column-section, .item { break-inside: avoid; }
     .job, p, ul { break-inside: auto; }
     
+    /* === THIS IS THE FIX FOR PDF CENTERING === */
     .skills-icons-container {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px 15px;
+        display: flex !important;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 25px; /* vertical horizontal gap */
         margin-top: -5px;
     }
     .skill-icon-item {
