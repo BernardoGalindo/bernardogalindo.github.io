@@ -39,7 +39,7 @@ ul { padding-left: 1.5em; list-style-type: '▪  '; }
 li { margin-bottom: 5px; padding-left: 5px; }
 p { margin: 0 0 10px 0; }
 .summary-section p { text-align: justify; font-size: 11pt; line-height: 1.8; }
-.two-column-section { display: flex; gap: 40px; }
+.two-column-section { display: flex; gap: 60px; }
 .left-column, .right-column { width: 50%; }
 .skills-pills-container { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; text-align: center; }
 .skill-pill { display: inline-flex; align-items: center; gap: 8px; padding: 8px 15px; background-color: #f1f3f5; color: var(--color-primario); border-radius: 20px; font-size: 9pt; font-weight: 600; transition: all 0.3s ease; }
@@ -71,6 +71,9 @@ p { margin: 0 0 10px 0; }
 .fade-in-section { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
 .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
 
+/* ============================================= */
+/* ======   MOBILE RESPONSIVE STYLES      ====== */
+/* ============================================= */
 @media (max-width: 900px) {
     .cv-container { width: 100%; margin: 0; padding: 20px; }
     .main-header { flex-direction: column; text-align: center; gap: 15px; }
@@ -80,7 +83,12 @@ p { margin: 0 0 10px 0; }
     .contact-info { align-items: center; }
     .two-column-section, .contact-form .form-row { flex-direction: column; gap: 0; }
     .left-column, .right-column { width: 100%; }
-    .right-column > section { margin-top: 25px; }
+    
+    /* === THIS IS THE FIX FOR MOBILE SPACING === */
+    .two-column-section .right-column {
+        margin-top: 40px;
+    }
+    
     .certificate-grid, .references-grid { grid-template-columns: 1fr; }
 }
 
