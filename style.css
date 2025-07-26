@@ -71,6 +71,33 @@ p { margin: 0 0 10px 0; }
 .fade-in-section { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
 .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
 
+
+/* ============================================= */
+/* ======   LANGUAGE CHART STYLES         ====== */
+/* ============================================= */
+.languages-chart-container { display: flex; flex-direction: column; gap: 15px; margin-top: -10px; }
+.language-bar { display: flex; align-items: center; gap: 15px; }
+.language-name { width: 80px; font-weight: 600; font-size: 10pt; }
+.language-level { font-size: 9pt; color: #777; width: 70px; text-align: left; }
+.progress-bar-container { flex-grow: 1; height: 12px; background-color: #f1f3f5; border-radius: 6px; overflow: hidden; }
+.progress-bar-fill {
+    width: 0; /* Initial width for animation */
+    height: 100%;
+    background-image: var(--gemini-gradient);
+    border-radius: 6px;
+    transition: width 1.2s ease-in-out, filter 0.3s, transform 0.3s;
+    transform-origin: left;
+}
+.language-bar:hover .progress-bar-fill {
+    filter: brightness(1.15);
+    transform: scaleX(1.02);
+}
+/* Animate width only when section is visible */
+.fade-in-section.is-visible .level-native { width: 100%; }
+.fade-in-section.is-visible .level-advanced { width: 85%; }
+.fade-in-section.is-visible .level-beginner { width: 30%; }
+
+
 @media (max-width: 900px) {
     .cv-container { width: 100%; margin: 0; padding: 20px; }
     .main-header { flex-direction: column; text-align: center; gap: 15px; }
@@ -149,7 +176,7 @@ input:checked + .slider:before { transform: translateX(26px); }
         font-size: 9.5pt;
         line-height: 1.5;
     }
-    .profile-picture, .header-actions, .references-section, .certificates-section, .section-divider, .main-footer, .contact-form-section, .contact-divider, .skills-pills-container, .language-switch-container {
+    .profile-picture, .header-actions, .references-section, .certificates-section, .section-divider, .main-footer, .contact-form-section, .contact-divider, .skills-pills-container, .language-switch-container, .languages-chart-container {
         display: none !important;
     }
     .cv-container { box-shadow: none; margin: 0; padding: 0; }
