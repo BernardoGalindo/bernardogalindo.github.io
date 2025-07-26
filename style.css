@@ -97,6 +97,11 @@ p { margin: 0 0 10px 0; }
 .fade-in-section.is-visible .level-advanced { width: 85%; }
 .fade-in-section.is-visible .level-beginner { width: 30%; }
 
+/* This hides the static print version on the website */
+.languages-print-view {
+    display: none;
+}
+
 
 @media (max-width: 900px) {
     .cv-container { width: 100%; margin: 0; padding: 20px; }
@@ -210,6 +215,20 @@ input:checked + .slider:before { transform: translateX(26px); }
         align-items: center;
         gap: 8px;
     }
+
+    /* ==== NEW: Display and center the static language list for print ==== */
+    .languages-print-view {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: -10px;
+    }
+    .languages-print-view p {
+        margin: 2px 0;
+        font-weight: 600;
+    }
+
     .right-column > section { 
         margin-top: 0;
     }
