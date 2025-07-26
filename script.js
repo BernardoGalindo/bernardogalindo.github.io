@@ -43,6 +43,10 @@ document.addEventListener('DOMContentLoaded', function() {
         levelNative: { es: 'Nativo', en: 'Native' },
         levelAdvanced: { es: 'Avanzado', en: 'Advanced' },
         levelBeginner: { es: 'Básico', en: 'Beginner' },
+        // NEW keys for the print version
+        langPrintSpanish: { es: 'Español (Nativo)', en: 'Spanish (Native)' },
+        langPrintEnglish: { es: 'Inglés (Avanzado)', en: 'English (Advanced)' },
+        langPrintFrench: { es: 'Francés (Básico)', en: 'French (Beginner)' },
         experienceTitle: { es: 'EXPERIENCIA LABORAL', en: 'WORK EXPERIENCE' },
         job1Title: { es: 'Supervisor de Operaciones | GPower Group S.A. | Mayo 2019 - Actualidad', en: 'Operations Supervisor | GPower Group S.A. | May 2019 - Present' },
         job1Desc1: { es: 'Dirijo la gestión integral de residuos (peligrosos, no peligrosos y reciclables) para las operaciones en los <span class="highlight-text">Bloques 14 y 17</span>, en el sensible entorno de la <span class="highlight-text">Amazonía ecuatoriana</span>. Mi especialización se centra en la planificación logística y ejecución para la evacuación segura de grandes volúmenes de materiales de alta complejidad.', en: 'I lead the integrated waste management (hazardous, non-hazardous, and recyclable) for operations in <span class="highlight-text">Blocks 14 and 17</span> within the sensitive environment of the <span class="highlight-text">Ecuadorian Amazon</span>. My specialization is in logistical planning and execution for the safe removal of large volumes of highly complex materials.' },
