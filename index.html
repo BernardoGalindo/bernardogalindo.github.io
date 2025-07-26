@@ -86,6 +86,7 @@
 
     <hr class="section-divider">
 
+    <!-- Section for Key Skills and Languages -->
     <div class="two-column-section aptitudes-section fade-in-section">
         <section class="left-column">
             <h2 data-lang-key="keySkillsTitle">APTITUDES CLAVE</h2>
@@ -104,9 +105,33 @@
                  <div class="skill-icon-item" data-lang-key="keySkill5Icon"><i class="fas fa-infinity"></i> Adaptabilidad y Aprendizaje</div>
             </div>
         </section>
-        <section class="right-column fade-in-section">
+        <section class="right-column">
             <h2 data-lang-key="languagesTitle">IDIOMAS</h2>
-            <p class="languages-list" data-lang-key="languagesList">Español - Nativo<br>Inglés - Avanzado<br>Francés - Intermedio</p>
+            <!-- ==== NEW: Language Bar Chart ==== -->
+            <div class="languages-chart-container">
+                <div class="language-bar">
+                    <span class="language-name" data-lang-key="langSpanish">Español</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill level-native"></div>
+                    </div>
+                    <span class="language-level" data-lang-key="levelNative">Nativo</span>
+                </div>
+                <div class="language-bar">
+                    <span class="language-name" data-lang-key="langEnglish">Inglés</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill level-advanced"></div>
+                    </div>
+                    <span class="language-level" data-lang-key="levelAdvanced">Avanzado</span>
+                </div>
+                <div class="language-bar">
+                    <span class="language-name" data-lang-key="langFrench">Francés</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill level-beginner"></div>
+                    </div>
+                    <span class="language-level" data-lang-key="levelBeginner">Básico</span>
+                </div>
+            </div>
+            <!-- ==== END: Language Bar Chart ==== -->
         </section>
     </div>
 
