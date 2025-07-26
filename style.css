@@ -87,14 +87,8 @@ p { margin: 0 0 10px 0; }
 }
 
 /* ============================================= */
-/* ======   LANGUAGE TOGGLE ADDITION      ====== */
+/* ======   LANGUAGE TOGGLE STYLING       ====== */
 /* ============================================= */
-[lang="en"] { display: none; }
-body.show-en [lang="es"] { display: none; }
-body.show-en [lang="en"] { display: inline; }
-body.show-en h1[lang="en"], body.show-en h2[lang="en"], body.show-en h3[lang="en"], body.show-en h4[lang="en"], body.show-en p[lang="en"], body.show-en li[lang="en"], body.show-en div[lang="en"], body.show-en span[lang="en"].skill-pill, body.show-en button[lang="en"] { display: inline-flex; }
-body.show-en p[lang="en"], body.show-en div.job[lang="en"], body.show-en div.item[lang="en"] { display: block; }
-
 .header-actions {
     display: flex;
     flex-direction: row;
@@ -113,8 +107,11 @@ body.show-en p[lang="en"], body.show-en div.job[lang="en"], body.show-en div.ite
 }
 .download-btn:hover { background-position: right center; transform: translateY(-2px); }
 .lang-label { font-size: 10pt; font-weight: 600; color: var(--color-primario); transition: color 0.3s ease; }
-body.show-en .lang-label[lang="es"] { color: #aaa; }
-body:not(.show-en) .lang-label[lang="en"] { color: #aaa; }
+
+/* These rules color the labels based on the .show-en class on the body */
+body.show-en [data-lang-key="langLabelEs"] { color: #aaa; }
+body:not(.show-en) [data-lang-key="langLabelEn"] { color: #aaa; }
+
 .language-switch { position: relative; display: inline-block; width: 50px; height: 24px; }
 .language-switch input { opacity: 0; width: 0; height: 0; }
 .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 24px; }
@@ -171,7 +168,7 @@ input:checked + .slider:before { transform: translateX(26px); }
     .two-column-section, .item { break-inside: avoid; }
     .job, p, ul { break-inside: auto; }
     
-    /* === THIS IS THE FIX FOR PDF CENTERING === */
+    /* Display the icon-based skills list only for printing */
     .skills-icons-container {
         display: flex !important;
         flex-wrap: wrap;
@@ -188,15 +185,5 @@ input:checked + .slider:before { transform: translateX(26px); }
     }
     .right-column > section { 
         margin-top: 0;
-    }
-    
-    body.show-en .skill-icon-item[lang="es"] {
-        display: none !important;
-    }
-    body.show-en .skill-icon-item[lang="en"] {
-        display: flex !important;
-    }
-    body:not(.show-en) .skill-icon-item[lang="en"] {
-        display: none !important;
     }
 }
