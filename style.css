@@ -186,20 +186,55 @@ input:checked + .slider:before { transform: translateX(26px); }
     }
     .cv-container { box-shadow: none; margin: 0; padding: 0; }
     .highlight-text { background-image: none !important; -webkit-background-clip: initial !important; background-clip: initial !important; color: inherit !important; font-weight: 600; }
-    h2::after { background-image: none !important; background-color: #000; height: 2px; }
     .fade-in-section { opacity: 1 !important; transform: none !important; }
     .experience-section .job, .experience-section .job:hover { padding: 0; box-shadow: none; transform: none; }
-    .main-header { padding-bottom: 15px; margin-bottom: 15px; }
-    h2 { margin-top: 15px; margin-bottom: 15px; padding-bottom: 5px; font-size: 13pt; }
-    h3 { margin-top: 10px; margin-bottom: 4px; font-size: 10pt; }
-    p { margin-bottom: 5px; }
-    li { margin-bottom: 4px; }
-    .summary-section p { font-size: 10pt; line-height: 1.6; }
-    .item, .job { margin-bottom: 10px; }
-    .two-column-section { gap: 30px; }
     .two-column-section, .item { break-inside: avoid; }
     .job, p, ul { break-inside: auto; }
+    .right-column > section { margin-top: 0; }
     
+    /* --- PDF SPACING & COHESION RULES --- */
+    h2 { 
+        font-size: 13pt; 
+        padding-bottom: 5px; 
+        margin-top: 24px; /* Consistent space above all main headers */
+        margin-bottom: 12px;
+    }
+    h2::after { 
+        background-image: none !important; 
+        background-color: #000; 
+        height: 2px; 
+    }
+    section:first-of-type h2, .main-header + section h2 {
+        margin-top: 0; /* No top margin for the very first header */
+    }
+    h3 {
+        font-size: 10pt;
+        margin-top: 12px; /* Consistent space above job titles/degrees */
+        margin-bottom: 4px;
+    }
+    p, ul {
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+    li {
+        margin-bottom: 3px;
+    }
+    .main-header { 
+        padding-bottom: 15px; 
+        margin-bottom: 15px; 
+    }
+    .item, .job {
+        margin-bottom: 10px;
+    }
+    .summary-section p { 
+        font-size: 10pt; 
+        line-height: 1.6; 
+    }
+    .two-column-section {
+         gap: 30px; 
+    }
+    /* --- END SPACING RULES --- */
+
     /* Display the icon-based skills list only for printing */
     .skills-icons-container {
         display: flex !important;
@@ -216,7 +251,7 @@ input:checked + .slider:before { transform: translateX(26px); }
         gap: 8px;
     }
 
-    /* ==== NEW: Display and center the static language list for print ==== */
+    /* Display and center the static language list for print */
     .languages-print-view {
         display: flex !important;
         flex-direction: column;
@@ -227,9 +262,5 @@ input:checked + .slider:before { transform: translateX(26px); }
     .languages-print-view p {
         margin: 2px 0;
         font-weight: 600;
-    }
-
-    .right-column > section { 
-        margin-top: 0;
     }
 }
