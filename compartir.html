@@ -17,16 +17,25 @@
     <style>
         :root {
             --gemini-gradient: linear-gradient(125deg, #4e8cff, #d16aff, #ff8a5c);
+            /* --- COLORES PARA EL TEMA OSCURO PERSONALIZADO --- */
+            --color-fondo: #1a1d24; /* Un azul noche muy oscuro */
+            --color-texto-principal: #f0f0f0; /* Un blanco suave */
+            --color-texto-secundario: #a0a0b0; /* Un gris azulado claro */
+            --color-contenedor: rgba(40, 44, 58, 0.85); /* Contenedor oscuro y semitransparente */
         }
         body {
             margin: 0;
             font-family: 'Montserrat', sans-serif;
-            /* --- NUEVO FONDO --- */
-            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed; /* Mantiene el fondo fijo al hacer scroll */
-            /* --- FIN NUEVO FONDO --- */
+            background-color: var(--color-fondo);
+            /* --- FONDO "AIRE-ACUARIO" GENERADO CON CSS --- */
+            background-image: 
+                linear-gradient(45deg, rgba(78, 140, 255, 0.07) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(78, 140, 255, 0.07) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(78, 140, 255, 0.07) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(78, 140, 255, 0.07) 75%);
+            background-size: 60px 60px;
+            background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+            /* --- FIN DEL FONDO --- */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -35,16 +44,16 @@
             box-sizing: border-box;
         }
         .share-container {
-            background-color: rgba(255, 255, 255, 0.95); /* Fondo blanco semitransparente */
+            background-color: var(--color-contenedor);
             padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
             text-align: center;
             max-width: 400px;
             width: 100%;
             animation: fadeIn 0.8s ease-out;
-            backdrop-filter: blur(5px); /* Efecto de desenfoque del fondo */
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px); /* Efecto de desenfoque */
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -54,19 +63,20 @@
             max-width: 200px;
             width: 100%;
             margin: 20px 0;
-            border: 5px solid #dfe6e9;
-            border-radius: 8px;
-            background: white; /* Fondo blanco para el QR */
-            padding: 5px;
+            border: none;
+            border-radius: 12px;
+            background: white; /* El fondo del QR debe ser blanco para escanearse bien */
+            padding: 10px;
+            box-shadow: 0 0 15px rgba(255,255,255,0.1);
         }
         h1 {
             font-size: 28px;
-            color: #2d3436;
+            color: var(--color-texto-principal);
             margin: 0 0 10px 0;
             font-weight: 700;
         }
         p {
-            color: #555;
+            color: var(--color-texto-secundario);
             font-size: 1.1em;
             margin: 0 0 25px 0;
         }
@@ -75,7 +85,7 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 15px;
-            margin-bottom: 35px; /* Espacio para el nuevo botón */
+            margin-bottom: 35px;
         }
         .share-btn {
             display: flex;
@@ -84,8 +94,8 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background-color: #e9ecef;
-            color: #2d3436;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--color-texto-principal);
             text-decoration: none;
             font-size: 22px;
             transition: all 0.3s ease;
@@ -93,7 +103,6 @@
         .share-btn:hover {
             color: white;
             transform: translateY(-4px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
         }
         .whatsapp:hover { background-color: #25D366; }
         .linkedin:hover { background-color: #0A66C2; }
@@ -102,7 +111,6 @@
         .instagram:hover { 
             background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
         }
-        /* --- ESTILOS PARA EL NUEVO BOTÓN --- */
         .enter-cv-btn {
             display: inline-block;
             text-decoration: none;
@@ -118,6 +126,7 @@
         .enter-cv-btn:hover {
             background-position: right center;
             transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(78, 140, 255, 0.3);
         }
     </style>
 </head>
@@ -133,7 +142,6 @@
             </div>
 
         <a href="index.html" class="enter-cv-btn">Ingresar al CV</a>
-
     </div>
 
 <script>
@@ -141,7 +149,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const shareUrl = "https://cv.bernardogalindo.com";
     const shareText = "Te comparto el CV profesional de Bernardo Galindo, Ingeniero en Procesos Biotecnológicos:";
     const subjectText = "CV Profesional - Bernardo Galindo";
-    const instagramProfile = "https://www.instagram.com/tu_usuario_de_instagram"; // <-- CAMBIA ESTO
+    // IMPORTANTE: Recuerda cambiar "tu_usuario_de_instagram" por tu nombre de usuario real
+    const instagramProfile = "https://www.instagram.com/tu_usuario_de_instagram"; 
 
     const buttons = [
         { platform: 'whatsapp', icon: 'fab fa-whatsapp', url: `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`},
