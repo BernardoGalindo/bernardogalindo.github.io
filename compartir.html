@@ -17,24 +17,20 @@
     <style>
         :root {
             --gemini-gradient: linear-gradient(125deg, #4e8cff, #d16aff, #ff8a5c);
-            /* --- COLORES PARA EL TEMA OSCURO PERSONALIZADO --- */
-            --color-fondo: #1a1d24; /* Un azul noche muy oscuro */
-            --color-texto-principal: #f0f0f0; /* Un blanco suave */
-            --color-texto-secundario: #a0a0b0; /* Un gris azulado claro */
-            --color-contenedor: rgba(40, 44, 58, 0.85); /* Contenedor oscuro y semitransparente */
+            --color-fondo: #1a1d24;
+            --color-texto-principal: #f0f0f0;
+            --color-texto-secundario: #a0a0b0;
+            --color-contenedor: rgba(40, 44, 58, 0.85);
         }
         body {
             margin: 0;
             font-family: 'Montserrat', sans-serif;
             background-color: var(--color-fondo);
-            /* --- FONDO "AIRE-ACUARIO" GENERADO CON CSS --- */
-            background-image: 
-                linear-gradient(45deg, rgba(78, 140, 255, 0.07) 25%, transparent 25%),
-                linear-gradient(-45deg, rgba(78, 140, 255, 0.07) 25%, transparent 25%),
-                linear-gradient(45deg, transparent 75%, rgba(78, 140, 255, 0.07) 75%),
-                linear-gradient(-45deg, transparent 75%, rgba(78, 140, 255, 0.07) 75%);
-            background-size: 60px 60px;
-            background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+            /* --- FONDO "AIRE-ACUARIO" COMPATIBLE --- */
+            background-image:
+                linear-gradient(to right, rgba(78, 140, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(78, 140, 255, 0.04) 1px, transparent 1px);
+            background-size: 20px 20px;
             /* --- FIN DEL FONDO --- */
             display: flex;
             justify-content: center;
@@ -52,7 +48,7 @@
             max-width: 400px;
             width: 100%;
             animation: fadeIn 0.8s ease-out;
-            backdrop-filter: blur(10px); /* Efecto de desenfoque */
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         @keyframes fadeIn {
@@ -65,7 +61,7 @@
             margin: 20px 0;
             border: none;
             border-radius: 12px;
-            background: white; /* El fondo del QR debe ser blanco para escanearse bien */
+            background: white;
             padding: 10px;
             box-shadow: 0 0 15px rgba(255,255,255,0.1);
         }
@@ -108,9 +104,6 @@
         .linkedin:hover { background-color: #0A66C2; }
         .facebook:hover { background-color: #1877F2; }
         .gmail:hover { background-color: #EA4335; }
-        .instagram:hover { 
-            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
-        }
         .enter-cv-btn {
             display: inline-block;
             text-decoration: none;
@@ -149,15 +142,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const shareUrl = "https://cv.bernardogalindo.com";
     const shareText = "Te comparto el CV profesional de Bernardo Galindo, Ingeniero en Procesos Biotecnológicos:";
     const subjectText = "CV Profesional - Bernardo Galindo";
-    // IMPORTANTE: Recuerda cambiar "tu_usuario_de_instagram" por tu nombre de usuario real
-    const instagramProfile = "https://www.instagram.com/tu_usuario_de_instagram"; 
 
     const buttons = [
         { platform: 'whatsapp', icon: 'fab fa-whatsapp', url: `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`},
         { platform: 'linkedin', icon: 'fab fa-linkedin-in', url: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(shareUrl)}&title=${encodeURIComponent(subjectText)}&summary=${encodeURIComponent(shareText)}`},
         { platform: 'facebook', icon: 'fab fa-facebook-f', url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(shareText)}`},
-        { platform: 'gmail', icon: 'fas fa-envelope', url: `mailto:?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(shareText + '\\n\\n' + shareUrl)}`},
-        { platform: 'instagram', icon: 'fab fa-instagram', url: instagramProfile}
+        { platform: 'gmail', icon: 'fas fa-envelope', url: `mailto:?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(shareText + '\\n\\n' + shareUrl)}`}
     ];
 
     const container = document.getElementById('share-buttons-container');
