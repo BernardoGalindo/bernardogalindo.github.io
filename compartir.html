@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compartir CV - Bernardo Galindo</title>
+    
+    <meta property="og:title" content="CV de Bernardo Galindo" />
+    <meta property="og:description" content="Ingeniero con experiencia en gestión ambiental, remediación y ciencia de datos. Haz clic para ver mi perfil completo." />
+    <meta property="og:image" content="https://bernardogalindo.github.io/bgalindo.jpg" /> 
+    <meta property="og:url" content="https://cv.bernardogalindo.com" />
+    <meta property="og:type" content="website" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-interactivo: #0984e3;
+            --gemini-gradient: linear-gradient(125deg, #4e8cff, #d16aff, #ff8a5c);
+        }
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f5f6fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .share-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            animation: fadeIn 0.8s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .qr-code {
+            max-width: 220px;
+            width: 100%;
+            margin-bottom: 25px;
+            border: 5px solid #dfe6e9;
+            border-radius: 8px;
+        }
+        h1 {
+            font-size: 24px;
+            color: #2d3436;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+        p {
+            color: #555;
+            margin: 0 0 30px 0;
+        }
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .share-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #f1f3f5;
+            color: #2d3436;
+            text-decoration: none;
+            font-size: 22px;
+            transition: all 0.3s ease;
+        }
+        .share-btn:hover {
+            color: white;
+            transform: translateY(-4px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+        .whatsapp:hover { background-color: #25D366; }
+        .linkedin:hover { background-color: #0A66C2; }
+        .facebook:hover { background-color: #1877F2; }
+        .gmail:hover { background-color: #EA4335; }
+        .instagram:hover { 
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="share-container">
+        <h1>Bernardo Galindo</h1>
+        <p>Escanea o comparte mi CV Profesional</p>
+        
+        <img src="QRCV.png" alt="QR Code para CV de Bernardo Galindo" class="qr-code">
+
+        <div class="share-buttons" id="share-buttons-container">
+            </div>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // --- CONFIGURACIÓN ---
+    const shareUrl = "https://cv.bernardogalindo.com";
+    const shareText = "Te comparto el CV profesional de Bernardo Galindo, Ingeniero en Procesos Biotecnológicos:";
+    const subjectText = "CV Profesional - Bernardo Galindo";
+    // IMPORTANTE: Cambia "tu_usuario_de_instagram" por tu nombre de usuario real
+    const instagramProfile = "https://www.instagram.com/bgalindoo"; 
+
+    // --- LÓGICA DE LOS BOTONES ---
+    const buttons = [
+        { 
+            platform: 'whatsapp',
+            icon: 'fab fa-whatsapp',
+            url: `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`
+        },
+        { 
+            platform: 'linkedin',
+            icon: 'fab fa-linkedin-in',
+            url: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(shareUrl)}&title=${encodeURIComponent(subjectText)}&summary=${encodeURIComponent(shareText)}`
+        },
+        { 
+            platform: 'facebook',
+            icon: 'fab fa-facebook-f',
+            url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(shareText)}`
+        },
+        { 
+            platform: 'gmail',
+            icon: 'fas fa-envelope',
+            url: `mailto:?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(shareText + '\\n\\n' + shareUrl)}`
+        },
+        { 
+            platform: 'instagram',
+            icon: 'fab fa-instagram',
+            url: instagramProfile // Instagram no permite compartir enlaces directamente, así que va a tu perfil.
+        }
+    ];
+
+    const container = document.getElementById('share-buttons-container');
+    buttons.forEach(button => {
+        const link = document.createElement('a');
+        link.href = button.url;
+        link.className = `share-btn ${button.platform}`;
+        link.target = '_blank'; // Abrir en una nueva pestaña
+        link.setAttribute('aria-label', `Compartir en ${button.platform}`); // Para accesibilidad
+        link.innerHTML = `<i class="${button.icon}"></i>`;
+        container.appendChild(link);
+    });
+});
+</script>
+
+</body>
+</html>
